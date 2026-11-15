@@ -1,25 +1,23 @@
 cmake_minimum_required(VERSION 3.19)
-project(H1 LANGUAGES CXX)
+project(h2a LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core LinguistTools)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup()
 
-qt_add_executable(H1
+qt_add_executable(h2a
     main.cpp
+    car.h car.cpp
+    rectangle.h rectangle.cpp
+    student.h student.cpp
 )
 
-qt_add_translations(
-    TARGETS H1
-    TS_FILES H1_fi_FI.ts
-)
-
-target_link_libraries(H1
+target_link_libraries(h2a
     PRIVATE
         Qt::Core
 )
 
-install(TARGETS H1
+install(TARGETS h2a
     BUNDLE  DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
